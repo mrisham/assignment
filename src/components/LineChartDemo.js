@@ -8,7 +8,6 @@ export default function LineChartDemo() {
     },
   ]);
 
-  // Function to generate random data
   const generateRandomData = () => {
     const newData = [
       {
@@ -25,15 +24,13 @@ export default function LineChartDemo() {
     setData(newData);
   };
 
-  // Use useEffect to start the interval when the component mounts
   useEffect(() => {
     const intervalId = setInterval(() => {
       generateRandomData();
     }, 5000);
 
-    // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, []); // empty dependency array to run this effect only once
+  }, []);
 
   return (
     <LineChart
